@@ -1,0 +1,20 @@
+Aegis Resolve AI — Prototype Link
+==================================
+
+Live Prototype (Local):
+http://localhost:3000
+
+After starting the application (see README.md):
+
+  Landing Page:        http://localhost:3000
+  Customer Portal:     http://localhost:3000/customer
+  Merchant Portal:     http://localhost:3000/merchant
+  Control Center:      http://localhost:3000/admin
+  API Documentation:   http://localhost:8000/docs
+
+Recommended Demo Case:
+http://localhost:3000/admin/cases/AR-2026-002
+
+Deployment Note:
+For cloud deployment, replace localhost URLs with your hosted domain.
+Example: https://aegis-resolve-demo.vercel.app

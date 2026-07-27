@@ -1,0 +1,28 @@
+Aegis Resolve AI — GitHub Repository
+=====================================
+
+Repository URL:
+https://github.com/dictatordaddy/aegis-resolve
+
+Project Path (Local):
+c:\Users\digital metro\Documents\Scanned Documents\aegis-resolve
+
+Structure:
+├── backend/          FastAPI API server
+├── frontend/         Next.js web application
+├── docker-compose.yml
+├── .env.example
+├── README.md
+└── submission/       This submission package
+
+Clone & Run:
+  git clone https://github.com/dictatordaddy/aegis-resolve.git
+  cd aegis-resolve
+  docker-compose up
+
+Note: Initialize git and push to GitHub before submission if not already done:
+  git init
+  git add .
+  git commit -m "Aegis Resolve AI MVP submission"
+  git remote add origin https://github.com/dictatordaddy/aegis-resolve.git
+  git push -u origin main
