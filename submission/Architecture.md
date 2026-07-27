@@ -9,7 +9,343 @@
 | **Last Updated** | July 27, 2026 |
 
 ---
+# Enterprise Architecture
+## Aegis Resolve AI
 
+**Version:** 1.0  
+**Architecture Style:** Cloud-Native Event-Driven Microservices with Explainable Multi-Agent AI
+
+---
+
+# Overview
+
+Aegis Resolve AI is an enterprise-grade dispute resolution platform that combines cloud-native microservices, event-driven architecture, and explainable multi-agent artificial intelligence to automate payment dispute investigations while maintaining fairness, transparency, and regulatory compliance.
+
+Unlike traditional rule-based workflows, the platform orchestrates specialized AI agents that collaborate over a shared Evidence Trust Graph before generating an explainable decision.
+
+---
+
+# Enterprise Architecture
+
+```mermaid
+flowchart TB
+
+%% USERS
+subgraph U["Users"]
+direction LR
+CM["Card Members"]
+M["Merchants"]
+A["Analysts"]
+EC["Enterprise Control Center"]
+end
+
+%% PRESENTATION
+subgraph P["Presentation Layer"]
+direction LR
+WEB["Web Application<br/>React • Next.js"]
+DASH["Analytics Dashboard"]
+GRAPH["Evidence Graph UI"]
+REPLAY["Courtroom Replay"]
+end
+
+%% API
+subgraph API["Experience & API Gateway"]
+direction LR
+AUTH["Authentication<br/>OAuth2 / SSO"]
+RBAC["RBAC"]
+RATE["Rate Limiting"]
+VALID["Request Validation"]
+AUDIT["Audit Logging"]
+end
+
+%% SERVICES
+subgraph S["Business Services"]
+direction LR
+CASE["Case Service"]
+EVID["Evidence Service"]
+POL["Policy Service"]
+VERDICT["Verdict Service"]
+ANA["Analytics Service"]
+NOTIFY["Notification Service"]
+end
+
+%% EVENTS
+subgraph EV["Event Processing"]
+direction LR
+KAFKA["Apache Kafka Event Bus"]
+end
+
+%% AI
+subgraph AI["Digital Arbitration Court"]
+direction LR
+ORCH["Orchestrator"]
+
+COLLECT["Evidence Collection"]
+
+DOC["Document Intelligence"]
+
+CUST["Customer Advocate"]
+
+MERCHANT["Merchant Advocate"]
+
+POLICY["Policy Intelligence"]
+
+CASEAI["Case Intelligence"]
+
+REASON["Reasoning Engine"]
+
+JUDGE["Judge Agent"]
+
+EXPLAIN["Explainability Engine"]
+
+LEARN["Continuous Learning"]
+end
+
+%% DECISION
+subgraph D["Decision Intelligence"]
+direction LR
+CONF["Confidence Engine"]
+FAIR["Fairness Engine"]
+HUMAN["Human Review"]
+end
+
+%% DATA
+subgraph DATA["Knowledge Layer"]
+direction LR
+PG["PostgreSQL"]
+
+NEO["Neo4j<br/>Evidence Trust Graph"]
+
+VECTOR["pgvector"]
+
+REDIS["Redis"]
+
+S3["Amazon S3"]
+
+KB["Policy Knowledge Base"]
+end
+
+%% OPS
+subgraph OPS["Monitoring & Governance"]
+direction LR
+PROM["Prometheus"]
+
+GRAF["Grafana"]
+
+LOG["Audit Logs"]
+
+SEC["Security & Compliance"]
+
+MODEL["Model Registry"]
+end
+
+%% CLOUD
+subgraph CLOUD["Cloud Platform"]
+direction LR
+AWS["Amazon Web Services"]
+EKS["Amazon EKS"]
+DOCKER["Docker"]
+RDS["Amazon RDS"]
+CW["CloudWatch"]
+BACKUP["AWS Backup"]
+end
+
+%% OUTCOME
+subgraph O["Outcomes"]
+direction TB
+DEC["Explainable Decision"]
+REPORT["Analytics & Reporting"]
+FEEDBACK["Continuous Improvement"]
+end
+
+%% FLOW
+
+U --> P
+P --> API
+API --> S
+S --> EV
+EV --> AI
+AI --> D
+D --> DATA
+DATA --> OPS
+OPS --> CLOUD
+
+AI --> O
+D --> O
+```
+
+---
+
+# Architecture Layers
+
+## 1. Users
+
+The platform supports multiple stakeholders.
+
+- Card Members
+- Merchants
+- Analysts
+- Enterprise Operations
+
+---
+
+## 2. Presentation Layer
+
+Provides enterprise user interfaces.
+
+Components
+
+- Customer Portal
+- Merchant Portal
+- Analytics Dashboard
+- Evidence Graph Viewer
+- Courtroom Replay
+
+---
+
+## 3. Experience Gateway
+
+Provides secure platform access.
+
+Responsibilities
+
+- Authentication
+- Authorization
+- Request Validation
+- Rate Limiting
+- Audit Logging
+
+---
+
+## 4. Business Services
+
+Domain-driven microservices.
+
+- Case Management
+- Evidence Processing
+- Policy Service
+- Decision Service
+- Notification Service
+- Analytics
+
+---
+
+## 5. Event Processing
+
+Apache Kafka coordinates asynchronous communication between services and AI agents.
+
+Benefits
+
+- Loose coupling
+- Scalability
+- Reliability
+- Fault isolation
+
+---
+
+## 6. Digital Arbitration Court
+
+The platform's intelligence layer.
+
+Specialized AI agents collaborate instead of relying on a single LLM.
+
+Agents include:
+
+- Evidence Collection
+- Document Intelligence
+- Customer Advocate
+- Merchant Advocate
+- Policy Intelligence
+- Case Intelligence
+- Reasoning Engine
+- Judge Agent
+- Explainability Engine
+- Continuous Learning
+
+---
+
+## 7. Decision Intelligence
+
+Before a verdict is issued:
+
+- Confidence Engine validates certainty.
+- Fairness Engine checks policy consistency.
+- Human Review handles exceptional cases.
+
+---
+
+## 8. Knowledge Layer
+
+Enterprise knowledge is stored across specialized systems.
+
+| Component | Purpose |
+|-----------|---------|
+| PostgreSQL | Transactional data |
+| Neo4j | Evidence Trust Graph |
+| pgvector | Semantic retrieval |
+| Redis | Low-latency cache |
+| Amazon S3 | Documents |
+| Policy Knowledge Base | Rules & compliance |
+
+---
+
+## 9. Monitoring & Governance
+
+Operational visibility.
+
+- Prometheus
+- Grafana
+- Audit Logs
+- Security Monitoring
+- Model Governance
+
+---
+
+## 10. Cloud Platform
+
+Cloud-native deployment.
+
+- AWS
+- Docker
+- Amazon EKS
+- Amazon RDS
+- CloudWatch
+- Backup & Disaster Recovery
+
+---
+
+# Request Lifecycle
+
+1. A dispute is submitted.
+2. Evidence is collected from enterprise systems.
+3. The Evidence Trust Graph links related entities.
+4. AI agents independently analyze the dispute.
+5. The Judge Agent synthesizes findings.
+6. Confidence and Fairness Engines validate the recommendation.
+7. Human review is triggered when required.
+8. An explainable decision is issued.
+9. Case outcomes improve future models through continuous learning.
+
+---
+
+# Enterprise Characteristics
+
+- Cloud Native
+- Event Driven
+- Explainable AI
+- Multi-Agent Reasoning
+- Human-in-the-Loop
+- Policy Aware
+- Horizontally Scalable
+- Highly Available
+- Secure by Design
+- Fully Auditable
+
+---
+
+# Conclusion
+
+Aegis Resolve AI combines cloud-native architecture, explainable multi-agent intelligence, and enterprise governance into a unified dispute resolution platform capable of delivering faster, fairer, and more transparent payment dispute decisions at production scale.
 ## 1. Architecture Overview
 
 Aegis Resolve AI follows a **three-tier architecture** optimized for demo reliability and future production scaling:
