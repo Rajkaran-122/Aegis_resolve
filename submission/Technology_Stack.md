@@ -8,6 +8,7 @@
 | **Last Updated** | July 27, 2026 |
 
 ---
+<img width="640" height="360" alt="image" src="https://github.com/user-attachments/assets/79f0cd73-21b2-4786-aab9-8677378eec80" />
 
 ## 1. Stack Overview
 
